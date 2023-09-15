@@ -128,6 +128,35 @@ const deselectAll = () => {
     answers.forEach((curAnsElem) => (curAnsElem.checked = false));
 };
 
+const shareButton = document.getElementById('shareButton');
+shareButton.addEventListener('click', () => {
+    const checkAnswer = getCheckAnswer();
+
+    if (checkAnswer || questionCount === quizDB.length) {
+        if (questionCount < quizDB.length) {
+            loadQuestion();
+        } else {
+            showScore.innerHTML = `
+                <h3> Your Score is ${score}/${quizDB.length} ✌ </h3>
+            `;
+            showScore.classList.remove('scoreArea');
+        }
+
+        // Verstecke den "Teilen"-Button
+        shareButton.style.display = 'none';
+
+        // Zeige die Buttons für "Auf Facebook teilen" und "Auf Twitter teilen" an
+        const shareFacebookButton = document.getElementById('shareFacebook');
+        const shareTwitterButton = document.getElementById('shareTwitter');
+        shareFacebookButton.style.display = 'block';
+        shareTwitterButton.style.display = 'block';
+    } else {
+        alert('Bitte wähle eine Antwort aus, bevor du fortfährst.');
+        questionCount--; // Zurück zur aktuellen Frage, da keine Option ausgewählt wurde
+    }
+});
+
+// Event-Listener für den "Antworten"-Button (submit)
 submit.addEventListener('click', () => {
     const checkAnswer = getCheckAnswer();
     if (checkAnswer === quizDB[questionCount].ans) {
@@ -136,19 +165,61 @@ submit.addEventListener('click', () => {
     questionCount++;
     deselectAll();
 
-    if (questionCount < quizDB.length) {
-        loadQuestion();
+    if (checkAnswer || questionCount === quizDB.length) {
+        if (questionCount < quizDB.length) {
+            loadQuestion();
+        } else {
+            showScore.innerHTML = `
+                <h3> Your Score is ${score}/${quizDB.length} ✌ </h3>
+                <button class="btn" onclick="showShareLinks()">Teilen</button>
+            `;
+            showScore.classList.remove('scoreArea');
+        }
     } else {
-        showScore.innerHTML = `
-            <h3> Your Score is ${score}/${quizDB.length} ✌ </h3>
-            <button class="btn" onclick="location.reload()">Play Again</button>
-        `;
-        showScore.classList.remove('scoreArea');
+        alert('Bitte wähle eine Antwort aus, bevor du fortfährst.');
+        questionCount--; // Zurück zur aktuellen Frage, da keine Option ausgewählt wurde
     }
 });
 
+const userNameInput = document.getElementById('userName');
+
 startQuizButton.addEventListener('click', () => {
+    const userName = userNameInput.value.trim();
+    if (userName === '') {
+        alert('Bitte gib deinen Namen ein.');
+        return;
+    }
     welcomeScreen.style.display = 'none';
     quizScreen.style.display = 'block';
     loadQuestion();
 });
+
+function showShareLinks() {
+    const shareButtons = document.getElementById('shareButtons');
+    const shareFacebookButton = document.getElementById('shareFacebook');
+    const shareTwitterButton = document.getElementById('shareTwitter');
+    const showScore = document.getElementById('showScore');
+    const userScore = score;
+
+    // Verberge den "Teilen"-Button und die Punkteanzeige
+    shareButtons.style.display = 'block';
+    shareFacebookButton.style.display = 'none';
+    shareTwitterButton.style.display = 'none';
+    showScore.style.display = 'none';
+
+    // Erstelle die Links mit den erreichten Punkten und der Quiz-URL
+    const quizURL = window.location.href;
+    shareFacebookButton.href = `https://www.facebook.com/sharer/sharer.php?u=${quizURL}&quote=Ich habe gerade das Quiz gespielt und ${userScore}/${quizDB.length} Punkte erreicht!`;
+    shareTwitterButton.href = `https://twitter.com/intent/tweet?url=${quizURL}&text=Ich habe gerade das Quiz gespielt und ${userScore}/${quizDB.length} Punkte erreicht!`;
+
+    // Verhindere, dass die Seite beim Klick auf die Teilen-Links neu geladen wird
+    shareFacebookButton.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.open(this.href, 'facebook-share', 'width=600,height=400');
+    });
+
+    shareTwitterButton.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.open(this.href, 'twitter-share', 'width=600,height=400');
+    });
+}

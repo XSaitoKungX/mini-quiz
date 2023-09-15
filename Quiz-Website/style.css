@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,300&display=swap');
 
 *{
@@ -11,6 +10,10 @@
 
 html{
     font-size: 62.5%;
+}
+
+a {
+    color: #0984e4;
 }
 
 .main-div{
@@ -68,7 +71,7 @@ input{
     margin-top: 4rem;
 }
 
-#submit:hover{
+#submit:hover {
     background-color: #0984e4;
 }
 
@@ -97,12 +100,95 @@ input{
     background-color: #2b9c7c;
 }
 
+#shareButtons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#shareButtons button {
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #050505;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#userName {
+    width: 80%;
+    height: 40px;
+    font-size: 16px;
+    margin: 0 auto;
+    display: block;
+}
+
 .scoreArea{
     display: none;
 }
 
-@media screen and (max-width:908px){
-    .inner-div{
+#welcomeScreen {
+    background-color: transparent;
+}
+
+.question {
+    font-family: 'Roboto', sans-serif;
+}
+
+.answer {
+    font-size: 1.8rem;
+}
+
+footer {
+    background-color: #333; /* Hintergrundfarbe ändern */
+    color: #fff; /* Textfarbe ändern */
+    padding: 20px 0; /* Innenabstand hinzufügen */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-social a {
+    color: #fff;
+    font-size: 24px;
+    margin-right: 20px;
+}
+
+.footer-contact p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    font-size: large;
+    text-decoration: none;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline; /* Unterstrich bei Hover hinzufügen */
+}
+
+/* Responsives Design für kleinere Bildschirme */
+@media screen and (max-width: 908px) {
+    .main-div {
         width: 80vw;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* Stile für kleine Bildschirme hier definieren */
+    .main-div {
+        width: 90vw;
+        padding: 2rem;
     }
 }

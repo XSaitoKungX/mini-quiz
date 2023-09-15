@@ -5,16 +5,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ihre kurze Webseite-Beschreibung hier">
+    <meta name="keywords" content="Quiz, Lernfeld, ClientsImNetzwerk, Clients, Netzwerk">
     <title>Clients im Netzwerk</title>
+    <link rel="icon" href="favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700|Roboto+Condensed:400,700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/11.0.1/css/lightbox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
 <div class="main-div">
     <div class="inner-div">
+
         <!-- Begrüßungsbildschirm -->
         <div id="welcomeScreen">
             <h2>Willkommen zum Quiz!</h2>
+            <input type="text" id="userName" placeholder="Gib deinen Namen ein">
             <button class="btn btn-info" id="startQuiz">Quiz starten</button>
         </div>
 
@@ -24,28 +38,33 @@
             <ul>
 
                 <li>
-                    <input type="radio" name="answer" id="ans1" class="answer">
+                    <input type="radio" name="answer" id="ans1" class="answer" required>
                     <label for="ans1" id="option1">Answer Option</label>
                 </li>
 
                 <li>
-                    <input type="radio" name="answer" id="ans2" class="answer">
+                    <input type="radio" name="answer" id="ans2" class="answer" required>
                     <label for="ans2" id="option2">Answer Option</label>
                 </li>
 
                 <li>
-                    <input type="radio" name="answer" id="ans3" class="answer">
+                    <input type="radio" name="answer" id="ans3" class="answer" required>
                     <label for="ans3" id="option3">Answer Option</label>
                 </li>
 
                 <li>
-                    <input type="radio" name="answer" id="ans4" class="answer">
+                    <input type="radio" name="answer" id="ans4" class="answer" required>
                     <label for="ans4" id="option4">Answer Option</label>
                 </li>
 
             </ul>
             <button id="submit">ANTWORTEN</button>
             <div id="showScore" class="scoreArea"></div>
+            <div class="shareButtons" id="shareButtons" style="display: none;">
+                <button id="shareButton">Teilen</button>
+                <button><a href="#" id="shareFacebook" target="_blank">Auf Facebook teilen</a></button>
+                <button><a href="#" id="shareTwitter" target="_blank">Auf Twitter teilen</a></button>
+            </div>
         </div>
     </div>
 </div>
@@ -53,3 +72,29 @@
 </body>
 
 </html>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-social">
+            <a href="https://www.discordapp.com/users/848917797501141052" target="_blank" class="discord" title="Discord">
+                <i class="fab fa-discord"></i>
+            </a>
+            <a href="https://github.com/XSaitoKungX" target="_blank" class="github" title="Github">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://twitch.tv/XSaitoKungX" target="_blank" class="twitch" title="Twitch">
+                <i class="fab fa-twitch"></i>
+            </a>
+            <a href="https://www.facebook.com/Markung.NP/" target="_blank" class="facebook" title="Facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+        </div>
+        <div class="footer-contact">
+            <p>Kontaktiere mich unter: <a href="mailto:n.pongsuwan@lueneburg-bbs1.de">n.pongsuwan@lueneburg-bbs1.de</a></p>
+        </div>
+        <div class="footer-links">
+            <a href="/impressum.html">Impressum</a>
+            <a href="/datenschutz.html">Datenschutz</a>
+        </div>
+    </div>
+</footer>
