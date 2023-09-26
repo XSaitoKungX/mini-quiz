@@ -83,7 +83,7 @@ Die Überprüfung der WLAN-Anschlussmöglichkeiten und die Nutzung von Messgerä
 
 ---
 
-![Lokales Bild](/Lernfeld%203/Clients%20in%20Netzwerke/IP-Address-Database.svg)
+![Lokales Bild](/IP-Address-Database.svg)
 
 ---
 
