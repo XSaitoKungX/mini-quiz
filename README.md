@@ -124,7 +124,7 @@ Die Verwendung von "ipconfig" ist äußerst nützlich, um Netzwerkprobleme zu di
 
 ---
 
-![Lokales Bild](/Lernfeld%203/Clients%20in%20Netzwerke/ipconfig.png)
+![Lokales Bild](/ipconfig.png)
 
 ---
 
